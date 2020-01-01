@@ -101,7 +101,7 @@ export const usePopoverCombobox = (arrVal: any[]) => {
 
 			if (isSingleSelecting) {
 				kbEvent.preventDefault();
-				const newIndex = active.index;
+				const newIndex = internalArr[focusedIndex].index;
 				markAsSelected(newIndex, newIndex);
 				return;
 			}
