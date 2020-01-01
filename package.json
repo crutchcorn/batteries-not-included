@@ -8,7 +8,8 @@
     "test": "jest",
     "format": "eslint --fix ./src/**/*.ts",
     "lint": "eslint ./src/**/*.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "release": "standard-version"
   },
   "repository": {
     "type": "git",
@@ -46,6 +47,7 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-test-renderer": "^16.12.0",
+    "standard-version": "^7.0.1",
     "ts-jest": "^24.2.0",
     "typescript": "^3.7.4"
   },
