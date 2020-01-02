@@ -1,7 +1,7 @@
 {
   "name": "no-batteries-included",
   "version": "0.0.1-alpha.1",
-  "description": "A utilities package with a no-batteries-included philosophy",
+  "description": "A utilities library with a no-batteries-included philosophy",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
