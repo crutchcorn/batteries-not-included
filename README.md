@@ -1,6 +1,17 @@
+<p align="center">
+    <img alt="No batteries included logo" src="./logo.png"/>
+</p>
+<h1 align="center">
+  Batteries Not Included
+</h1>
+<div align="center">
+
 [![Our npm path](https://badgen.net/npm/v/batteries-not-included)](https://www.npmjs.com/package/batteries-not-included/)
 [![Join chat on Discord](https://badgen.net/badge/discord/join%20chat/7289DA?icon=discord)](https://discord.gg/FMcvc6T)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
+[![Master Branch Build Status](https://travis-ci.org/unicorn-utterances/batteries-not-included.svg?branch=master)](https://travis-ci.org/unicorn-utterances/batteries-not-included)
+
+</div>
 
 We've all been there, using a library we've found that works well for just about every task you throw at it; until it doesn't.
 There's some configuration that the developers have placed in the codebase that prevents you from using it.
