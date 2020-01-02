@@ -8,7 +8,7 @@ There are various sub-utilities to the React section of this package:
 It is suggested that all of these modules are imported from the following:
 
 ```
-import {functionName} from 'no-batteries-included/react';
+import {functionName} from 'batteries-not-included/react';
 ```
 
 As any more-specific imports may have breaking changes before a stable release is maintained

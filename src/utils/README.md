@@ -11,8 +11,8 @@ in vanilla JS or in codebases utilizing something like React or Angular.
 
 As a result, you're able to import either from:
 ```javascript
-import {normalizeNumber} from 'no-batteries-included/utils';
-import {normalizeNumber} from 'no-batteries-included/utils/normalize-number';
+import {normalizeNumber} from 'batteries-not-included/utils';
+import {normalizeNumber} from 'batteries-not-included/utils/normalize-number';
 ```
 
 However, due to potential breaking APIs in the future, it is highly suggested to use the first of the two results.

@@ -24,8 +24,8 @@ and have an active community that would love to help you with any questions or c
 
 In order to setup a development environment to help contribute to our codebase, you'll need to clone the repo and install the dependencies of our project
 ```
-git clone https://github.com/unicorn-utterances/no-batteries-included.git
-cd no-batteries-included
+git clone https://github.com/unicorn-utterances/batteries-not-included.git
+cd batteries-not-included
 npm i
 ```
 

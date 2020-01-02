@@ -1,7 +1,7 @@
 {
-  "name": "no-batteries-included",
+  "name": "batteries-not-included",
   "version": "0.0.1-alpha.1",
-  "description": "A utilities library with a no-batteries-included philosophy",
+  "description": "A utilities library with a batteries-not-included philosophy",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -13,13 +13,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/unicorn-utterances/no-batteries-included.git"
+    "url": "git+https://github.com/unicorn-utterances/batteries-not-included.git"
   },
   "license": "MPL-2.0",
   "bugs": {
-    "url": "https://github.com/unicorn-utterances/no-batteries-included/issues"
+    "url": "https://github.com/unicorn-utterances/batteries-not-included/issues"
   },
-  "homepage": "https://github.com/unicorn-utterances/no-batteries-included#readme",
+  "homepage": "https://github.com/unicorn-utterances/batteries-not-included#readme",
   "devDependencies": {
     "@babel/core": "^7.7.7",
     "@babel/plugin-proposal-optional-chaining": "^7.7.5",
