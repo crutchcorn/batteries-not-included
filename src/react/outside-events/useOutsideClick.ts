@@ -1,4 +1,4 @@
-import { useOutsideEvent, UseOutsideEventParams } from "./onOutsideEvent";
+import { useOutsideEvent, UseOutsideEventParams } from "./useOutsideEvent";
 
 /**
  * @param {...*} params

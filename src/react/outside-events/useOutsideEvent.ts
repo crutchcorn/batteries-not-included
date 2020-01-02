@@ -1,4 +1,4 @@
-import { RefObject, useCallback, useEffect } from "react";
+import { RefObject, useCallback, useEffect, useState } from "react";
 
 export type UseOutsideEventParams = [RefObject<any>, boolean, Function];
 
@@ -15,18 +15,16 @@ export const useOutsideEvent = (
 ) => {
 	const [parentRef, enable, onOutsideEvent] = params;
 
-	const currParentRef = parentRef && parentRef.current;
-
 	const handleClickOutside = useCallback(
 		e => {
-			if (currParentRef.contains(e.target)) {
+			if (parentRef.current.contains(e.target)) {
 				// inside click
 				return;
 			}
 			// outside click
 			onOutsideEvent();
 		},
-		[currParentRef, onOutsideEvent]
+		[parentRef, parentRef.current, onOutsideEvent]
 	);
 
 	useEffect(() => {
