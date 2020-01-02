@@ -17,7 +17,7 @@
  */
 
 import { RefObject, SyntheticEvent, useEffect, useState } from "react";
-import { normalizeNumber } from "../../normalize-number";
+import { normalizeNumber } from "../../utils/normalize-number";
 
 /**
  * @param parentRef - The parent ref to bind the event handling to

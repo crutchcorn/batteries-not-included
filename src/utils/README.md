@@ -15,6 +15,8 @@ import {normalizeNumber} from 'no-batteries-included/utils';
 import {normalizeNumber} from 'no-batteries-included/utils/normalize-number';
 ```
 
+However, due to potential breaking APIs in the future, it is highly suggested to use the first of the two results.
+
 The function takes three parameters:
 
 1) The number to check the value of
