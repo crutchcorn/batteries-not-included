@@ -13,19 +13,23 @@
 import { RefObject, useCallback, useEffect, useState } from "react";
 import { useOutsideClick, useOutsideFocus } from "../outside-events";
 
+interface UsePopoverOptions {
+	// An add-on CB function to the button event handler
+	// Is the popover expanded
+	onBtnClick?: (e: MouseEvent, expanded: boolean) => void;
+	// An add-on CB function to the button event handler
+	onBtnKeyDown?: (e: KeyboardEvent, expanded: boolean) => void;
+}
+
 /**
  * @param parentRef - The div that contains the popoverArea and the trigger button
  * @param popoverAreaRef - The div that will be used as the popover area to focus on when the popover is opened
- * @param [onBtnClick] - An add-on CB function to the button event handler
- * @param [onBtnKeyDown] - An add-on CB function to the button event handler
  * @returns {{buttonProps, expanded}}
  */
 export const usePopover = (
 	parentRef: RefObject<any>,
 	popoverAreaRef: RefObject<any>,
-	// Is the popover expanded
-	onBtnClick?: (e: MouseEvent, expanded: boolean) => void,
-	onBtnKeyDown?: (e: KeyboardEvent, expanded: boolean) => void
+	{ onBtnClick, onBtnKeyDown }: UsePopoverOptions
 ) => {
 	const [expanded, setExpanded] = useState(false);
 

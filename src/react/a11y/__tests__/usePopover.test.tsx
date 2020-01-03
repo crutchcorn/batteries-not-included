@@ -12,8 +12,7 @@ test("usePopover handles everything", async () => {
 		const { buttonProps, expanded, setExpanded } = usePopover(
 			parRef,
 			popoverAreaRef,
-			onBtnClick,
-			onBtnKeyDown
+			{ onBtnClick, onBtnKeyDown }
 		);
 
 		return (

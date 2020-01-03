@@ -1,5 +1,9 @@
 import { RefObject, useCallback, useEffect, useState } from "react";
 
+interface UseUsedKeyboardLastOptions {
+	enable: boolean;
+}
+
 /**
  * A hook to handle when the keyboard was used last
  *
@@ -7,7 +11,10 @@ import { RefObject, useCallback, useEffect, useState } from "react";
  * so we're having the consumer themselves handle when to set the value to
  * false by returning the function `resetLastUsedKeyboard`
  */
-export const useUsedKeyboardLast = (ref: RefObject<any>, enable: boolean) => {
+export const useUsedKeyboardLast = (
+	elRef: RefObject<any>,
+	{ enable = true }: UseUsedKeyboardLastOptions
+) => {
 	const [usedKeyboardLast, setUsedKeyboardLast] = useState(false);
 
 	const resetLastUsedKeyboard = useCallback(
@@ -16,7 +23,7 @@ export const useUsedKeyboardLast = (ref: RefObject<any>, enable: boolean) => {
 	);
 
 	useEffect(() => {
-		const currRef = ref && ref.current;
+		const currRef = elRef && elRef.current;
 		const setUsedKeyboardLastToTrue = () => setUsedKeyboardLast(true);
 
 		if (enable && currRef) {
@@ -26,7 +33,7 @@ export const useUsedKeyboardLast = (ref: RefObject<any>, enable: boolean) => {
 				currRef.removeEventListener("keydown", setUsedKeyboardLastToTrue);
 			};
 		}
-	}, [enable, ref]);
+	}, [enable, elRef, elRef.current]);
 
 	return {
 		usedKeyboardLast,

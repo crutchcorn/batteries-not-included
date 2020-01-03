@@ -5,12 +5,15 @@
  */
 
 import { RefObject, useMemo, useRef, useState } from "react";
-import { useKeyboardListNavigation } from "./useKeyboardListNavigation";
+import {
+	useKeyboardListNavigation,
+	UseKeyboardListNavigationSubmitFn
+} from "./useKeyboardListNavigation";
 import { useUsedKeyboardLast } from "./useUsedKeyboardLast";
 import { usePopover } from "./usePopover";
 import { useSelectableArray } from "./useSelectableArray";
 
-export const usePopoverCombobox = (arrVal: any[]) => {
+export const usePopoverCombobox = <T>(arrVal: T[]) => {
 	/**
 	 * Because of timing issues within the `runOnSubmit` CB, we need to have
 	 * an index to add to the tracking index, otherwise pressing spacebar
@@ -52,70 +55,78 @@ export const usePopoverCombobox = (arrVal: any[]) => {
 	const { buttonProps, expanded, setExpanded } = usePopover(
 		parentRef,
 		comboBoxListRef,
-		resetLastUsedKeyboard
+		{ onBtnClick: resetLastUsedKeyboard }
 	);
 
 	const {
 		resetLastUsedKeyboard: tmpResetUsedKeyboardLast,
 		usedKeyboardLast
-	} = useUsedKeyboardLast(comboBoxListRef, expanded);
+	} = useUsedKeyboardLast(comboBoxListRef, { enable: expanded });
 
 	resetLastUsedKeyboardRef.current = tmpResetUsedKeyboardLast;
+
+	const runOnIndexChange: UseKeyboardListNavigationSubmitFn = (
+		kbEvent,
+		focusedIndex,
+		newIndex
+	) => {
+		// If arrow keys were handled,
+		if (newIndex !== undefined) {
+			// We're selecting using mouse and not holding shift, select only one
+			const isMouseEvent =
+				kbEvent?.nativeEvent instanceof window.MouseEvent ||
+				(window.TouchEvent &&
+					kbEvent?.nativeEvent instanceof window.TouchEvent);
+			if (isMouseEvent && !kbEvent?.shiftKey) {
+				markAsSelected(newIndex, newIndex);
+				resetLastUsedKeyboard();
+				return;
+			}
+
+			// If shift or shift+ctrl were being handled, mark the items as selected
+			const isKeyboardSelecting = ["Home", "End"].includes(kbEvent?.key || "")
+				? kbEvent?.shiftKey && kbEvent?.ctrlKey
+				: kbEvent?.shiftKey;
+
+			// If a single item is selected, go ahead and toggle it
+			if (isKeyboardSelecting) {
+				markAsSelected(focusedIndex, newIndex);
+				return;
+			}
+		}
+
+		// At this point, we're using mouse to toggle an item, we can stop checking
+		// If there are other keys
+		if (!kbEvent) return;
+
+		const isSingleSelecting = [" ", "Spacebar"].includes(kbEvent.key);
+
+		if (isSingleSelecting) {
+			kbEvent.preventDefault();
+			const newIndex = internalArr[focusedIndex].index;
+			markAsSelected(newIndex, newIndex);
+			return;
+		}
+
+		if (kbEvent.code === "KeyA" && kbEvent.ctrlKey) {
+			kbEvent.preventDefault();
+			selectAll();
+			return;
+		}
+
+		if (kbEvent.key === "Escape") {
+			kbEvent.preventDefault();
+			setExpanded(false);
+		}
+	};
 
 	// Arrow key handler
 	const { focusedIndex, selectIndex } = useKeyboardListNavigation(
 		comboBoxListRef,
-		internalArr,
-		expanded,
-		(kbEvent, focusedIndex, newIndex) => {
-			// If arrow keys were handled,
-			if (newIndex !== undefined) {
-				// We're selecting using mouse and not holding shift, select only one
-				const isMouseEvent =
-					kbEvent?.nativeEvent instanceof window.MouseEvent ||
-					(window.TouchEvent &&
-						kbEvent?.nativeEvent instanceof window.TouchEvent);
-				if (isMouseEvent && !kbEvent?.shiftKey) {
-					markAsSelected(newIndex, newIndex);
-					resetLastUsedKeyboard();
-					return;
-				}
-
-				// If shift or shift+ctrl were being handled, mark the items as selected
-				const isKeyboardSelecting = ["Home", "End"].includes(kbEvent?.key || "")
-					? kbEvent?.shiftKey && kbEvent?.ctrlKey
-					: kbEvent?.shiftKey;
-
-				// If a single item is selected, go ahead and toggle it
-				if (isKeyboardSelecting) {
-					markAsSelected(focusedIndex, newIndex);
-					return;
-				}
-			}
-
-			// At this point, we're using mouse to toggle an item, we can stop checking
-			// If there are other keys
-			if (!kbEvent) return;
-
-			const isSingleSelecting = [" ", "Spacebar"].includes(kbEvent.key);
-
-			if (isSingleSelecting) {
-				kbEvent.preventDefault();
-				const newIndex = internalArr[focusedIndex].index;
-				markAsSelected(newIndex, newIndex);
-				return;
-			}
-
-			if (kbEvent.code === "KeyA" && kbEvent.ctrlKey) {
-				kbEvent.preventDefault();
-				selectAll();
-				return;
-			}
-
-			if (kbEvent.key === "Escape") {
-				kbEvent.preventDefault();
-				setExpanded(false);
-			}
+		{
+			maxLength: internalArr.length,
+			enable: expanded,
+			runOnIndexChange
 		}
 	);
 

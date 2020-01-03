@@ -11,7 +11,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { genId } from "./getNewId";
-import { normalizeNumber } from "../../utils/normalize-number";
+import { normalizeNumber } from "../../utils";
 
 export interface UseSelectableArrayInternalVal<T = any> {
 	id: string | number; // A unique ID that can be safely placed in the DOM

@@ -12,36 +12,51 @@
  * ✅ Handle arrow-down to change index
  * ✅ Handle home to change index to first
  * ✅ Handle end to change index to last
- * 🔲 Handle arrow-left to change index via optional prop (?)
- * 🔲 Handle arrow-right to change index via optional prop (?)
+ * 🔲 Handle arrow-left/right to change index via optional prop (?)
+ * 🔲 Handle wrapping around the index via optional prop (?)
  */
 
 import { RefObject, SyntheticEvent, useEffect, useState } from "react";
-import { normalizeNumber } from "../../utils/normalize-number";
+import { normalizeNumber } from "../../utils";
+
+type KeyboardSyntheticEvent = KeyboardEvent & Partial<SyntheticEvent>;
+
+export type UseKeyboardListNavigationSubmitFn = (
+	// If this event is undefined it's because it wasn't passed by `selectIndex`
+	event: (KeyboardEvent & Partial<SyntheticEvent>) | undefined,
+	// The old index that's presently selected
+	focusedIndex: number,
+	// The new index that's being selected
+	newIndex: number | undefined
+) => void;
+
+export interface UseKeyboardListNavigationOptions {
+	maxLength?: number;
+	enable?: boolean;
+	runOnIndexChange?: UseKeyboardListNavigationSubmitFn;
+}
 
 /**
  * @param parentRef - The parent ref to bind the event handling to
- * @param arrVal - The array value to handle navigating the index of
+ * @param maxLength - The maximum number that can be bound to
  * @param enable - Disable event handling
- * @param [runOnSubmit] - An optional function to hook into the event handler logic
+ * @param [runOnIndexChange] - An optional function to hook into the event handler logic
  */
 export const useKeyboardListNavigation = (
 	parentRef: RefObject<any>,
-	arrVal: any[],
-	enable: boolean,
-	runOnSubmit?: (
-		event: (KeyboardEvent & Partial<SyntheticEvent>) | undefined,
-		focusedIndex: number,
-		newIndex?: number
-	) => void
+	{
+		maxLength = Infinity,
+		enable = true,
+		runOnIndexChange
+	}: UseKeyboardListNavigationOptions
 ) => {
 	const [focusedIndex, setFocusedIndex] = useState(0);
 
-	const maxIndex = arrVal.length - 1;
+	const maxIndex = maxLength - 1;
 
 	// Arrow key handler
 	useEffect(() => {
-		const onKeyDown = (event: KeyboardEvent & Partial<SyntheticEvent>) => {
+		const onKeyDown = (event: KeyboardSyntheticEvent) => {
 			if (!enable) {
 				return;
 			}
@@ -62,18 +77,18 @@ export const useKeyboardListNavigation = (
 					break;
 				case "Home":
 					event.preventDefault();
-					_newIndex = 0;
+					if (maxIndex !== Infinity) _newIndex = 0;
 					break;
 				case "End":
 					event.preventDefault();
-					_newIndex = maxIndex;
+					if (maxIndex !== Infinity) _newIndex = maxIndex;
 					break;
 				default:
 					break;
 			}
 
-			if (runOnSubmit) {
-				runOnSubmit(event, focusedIndex, _newIndex);
+			if (runOnIndexChange) {
+				runOnIndexChange(event, focusedIndex, _newIndex);
 			}
 
 			// None of the keys were selected
@@ -89,17 +104,14 @@ export const useKeyboardListNavigation = (
 		if (!el) return;
 		el.addEventListener("keydown", onKeyDown);
 		return () => el.removeEventListener("keydown", onKeyDown);
-	}, [focusedIndex, parentRef, enable, maxIndex, runOnSubmit]);
+	}, [focusedIndex, parentRef, enable, maxIndex, runOnIndexChange]);
 
-	const selectIndex = (
-		i: number,
-		e?: KeyboardEvent & Partial<SyntheticEvent>
-	) => {
+	const selectIndex = (i: number, e?: KeyboardSyntheticEvent) => {
 		setFocusedIndex(normalizeNumber(i, 0, maxIndex));
 
-		if (runOnSubmit) {
+		if (runOnIndexChange) {
 			if (e && e.persist) e.persist();
-			runOnSubmit(e, focusedIndex, i);
+			runOnIndexChange(e, focusedIndex, i);
 		}
 	};
 

@@ -11,12 +11,11 @@ test("useKeyboardListNavigation handles everything", async () => {
 
 		const [enable, setEnable] = useState(true);
 
-		const { focusedIndex, selectIndex } = useKeyboardListNavigation(
-			parRef,
-			valArr,
+		const { focusedIndex, selectIndex } = useKeyboardListNavigation(parRef, {
+			maxLength: valArr.length,
 			enable,
-			onSubmit
-		);
+			runOnIndexChange: onSubmit
+		});
 
 		return (
 			<>
