@@ -15,7 +15,7 @@
     "type": "git",
     "url": "git+https://github.com/unicorn-utterances/batteries-not-included.git"
   },
-  "license": "MPL-2.0",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/unicorn-utterances/batteries-not-included/issues"
   },
