@@ -22,7 +22,7 @@ this hook may be of help
 This hook takes two parameters:
 
 1) `elRef`: A reference to an element used to attach the event listeners to
-2) `options`: An object of options for the hook
+2) `options`: An optional object of options for the hook
 
 ### Options Object
 
@@ -52,7 +52,7 @@ last index item
 This hook takes two parameters:
 
 1) `parentRef`: A reference to an element used to attach the event listeners to
-2) `options`: An object of options for the hook
+2) `options`: An optional object of options for the hook
 
 ### Options Object
 
@@ -85,3 +85,32 @@ The `useKeyboardListNavigation` hook returns an object with two keys:
     1) `index`: The new index that you'd like to have selected
     2) `event`: The event that was used to trigger the selection. This will get passed to `runOnIndexChange`, so it's suggested to pass it when the user makes keyboard events at least
 
+## Selectable Array
+
+In many UI elements, there are times where having a selectable array with
+unique elements and a state of if an item is selected or not can be greatly
+useful. This hook assists in scenarios of the sort
+
+| File                 | Function             |
+| -------------------- | -------------------- |
+| `useSelectableArray` | `useSelectableArray` |
+
+This base hook takes two parameters:
+
+1) `valArr`: The original value array that you want to make selectable
+2) `runAfterSelectChange`: An optional function that can be ran after selection changes are made
+    - This is present as the `ref.current` value changes may not trigger a detection change, so this allows you to do so manually
+
+### Returns
+
+This hook returns an object with three keys:
+
+- `internalArr`: An array the same length as `valArr`, but with more metadata on each item in the array
+    - Each item of the array will have the following values:
+        - `id`: A unique ID that can be safely placed in the DOM
+        - `val`: The original value in the `valArr` array
+        - `index`: The original index in the `valArr` array
+        - `selected`: If this item is selected in the data
+- `selectAll`: A function with no parameters that will mark all items in the array with `selected: true`
+- `markAsSelected`: A function that takes two parameters - a from index and a to index. It will then select all the items from one value to another
+    - If the `from` index is lower than the `to` index, it will simply swap the two numbers and mark the items in between as `selected: true`0
