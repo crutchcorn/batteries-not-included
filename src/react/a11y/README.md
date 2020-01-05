@@ -114,3 +114,36 @@ This hook returns an object with three keys:
 - `selectAll`: A function with no parameters that will mark all items in the array with `selected: true`
 - `markAsSelected`: A function that takes two parameters - a from index and a to index. It will then select all the items from one value to another
     - If the `from` index is lower than the `to` index, it will simply swap the two numbers and mark the items in between as `selected: true`0
+
+## Popover
+
+This hook is meant to provide a utility that can be used to compose functionality
+for a popover component. A popover component is one that has a trigger button and a 
+popup after the button is pressed. This hook handles the `expanded` property as well
+as the props to be added to the trigger button
+
+| File         | Function     |
+| ------------ | ------------ |
+| `usePopover` | `usePopover` |
+
+This hook takes three parameters:
+
+1) `parentRef`: The div that contains the popoverArea and the trigger button
+2) `popoverAreaRef`: The div that will be used as the popover area to focus on when the popover is opened
+3) `options`: An optional object of options for the hook
+
+### Options Object
+
+- `options.onBtnClick`
+- `options.onBtnKeyDown`
+
+Because the return object expects you to pass the `buttonProps` `onClick` and `onKeyDown` to the button used to trigger a popover, passing these functions will run after the `usePopover` hook's implementation of each of these functions, allowing you to configure the behavior of them manually without ejecting from the object property spread.
+
+### Returns
+
+The `usePopover` hook returns an object with three keys:
+
+- `buttonProps`: The set of props that should be expanded on into a button. IE: `<button {...buttonProps}/>`
+    - The two included props in this object are `onClick` and `onKeyDown`. Your own implementations of these will be overwritten if you follow the above code
+- `expanded`: A boolean of if the popover is expanded or not
+- `setExpanded`: A function that takes a single boolean parameter and sets the value of `expanded`
