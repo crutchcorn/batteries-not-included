@@ -4,7 +4,7 @@
  * multi-selects, and tests to see if the user had last used a keyboard
  */
 
-import { RefObject, useMemo, useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import {
 	useKeyboardListNavigation,
 	UseKeyboardListNavigationSubmitFn

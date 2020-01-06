@@ -3,6 +3,14 @@ in vanilla JS or in codebases utilizing something like React or Angular.
 
 ## Utilities
 
+
+Table of Contents
+=================
+
+  * [Normalize Number](#normalize-number)
+
+------
+
 ### Normalize Number
 
 | File               | Function           |
