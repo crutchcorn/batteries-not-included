@@ -1,11 +1,19 @@
 import { tablize } from "../tablize";
 
-const result = `
+const twoLevelResult = `
 Item        | Count
 -------------------
 test        |     3
 hello       |   399
 testinghhhh |     1
+`.trim();
+
+const threeColumns = `
+Item        | Count | Another count
+-----------------------------------
+test        |     3 |    1939889988
+hello       |   399 |           213
+testinghhhh |     1 |    -129389176
 `.trim();
 
 describe("Tablize", () => {
@@ -19,6 +27,19 @@ describe("Tablize", () => {
 
 		const output = tablize(twoDArray);
 
-		expect(output).toBe(result);
+		expect(output).toBe(twoLevelResult);
+	});
+
+	test("Should handle array of arrays with three columns", () => {
+		const twoDArray = [
+			["Item", "Count", "Another count"],
+			["test", 3, 1939889988],
+			["hello", 399, 213],
+			["testinghhhh", 1, -129389176]
+		];
+
+		const output = tablize(twoDArray);
+
+		expect(output).toBe(threeColumns);
 	});
 });
