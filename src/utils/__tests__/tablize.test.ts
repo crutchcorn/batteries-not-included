@@ -12,9 +12,9 @@ describe("Tablize", () => {
 	test("Should handle array of arrays", () => {
 		const twoDArray = [
 			["Item", "Count"],
-			["nerdsniping", 3],
-			["hello", 1],
-			["test", -1]
+			["test", 3],
+			["hello", 399],
+			["testinghhhh", 1]
 		];
 
 		const output = tablize(twoDArray);
