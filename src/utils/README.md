@@ -42,3 +42,42 @@ normalizeNumber(5, 3, 10); // 5
 normalizeNumber(1, 3, 10); // 3
 normalizeNumber(18, 3, 10); // 10
 ```
+
+
+### Make an ASCII Table From 2D Array
+
+| File      | Function   |
+| --------- | ---------- |
+| `tablize` | `tablize`  |
+
+This function takes a two-dimentional array and treats it as a table,
+so it outputs to a string that's an ASCII art of a table. It will
+treat the first item in the array as a header to said table
+
+For example, given:
+```javascript
+const tableArray = [
+    ["Item", "Count", "Another count"],
+    ["Apples", 3, 1939889988],
+    ["Oranges", 399, 213],
+    ["Bananas", 1, -129389176]
+];
+
+console.log(tablize(tableArray));
+```
+
+It will output the following ASCII art:
+
+```
+Item    | Count | Another count
+-------------------------------
+Apples  |     3 |    1939889988
+Oranges |   399 |           213
+Bananas |     1 |    -129389176
+```
+
+> Please be aware that this functionality does not play nicely with A11Y
+> when printed out. This is meant only as a demo for some small things
+> that are not meant to be public.
+> Also, if you use this for outputting data in Node, you may be better suited
+> by `console.table`, as in some circumstances it is interactive
