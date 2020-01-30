@@ -1,6 +1,6 @@
 {
   "name": "batteries-not-included",
-  "version": "0.0.1-alpha.1",
+  "version": "0.0.1-alpha.2",
   "description": "A utilities library with a batteries-not-included philosophy",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
