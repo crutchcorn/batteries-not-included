@@ -1,0 +1,18 @@
+{
+	"name": "batteries-not-included",
+	"version": "0.0.1-alpha.4",
+	"description": "A utilities library with a batteries-not-included philosophy",
+	"main": "index.js",
+	"types": "index.d.ts",
+	"scripts": {
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/unicorn-utterances/batteries-not-included.git"
+	},
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/unicorn-utterances/batteries-not-included/issues"
+	},
+	"homepage": "https://github.com/unicorn-utterances/batteries-not-included#readme"
+}
