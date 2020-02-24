@@ -158,3 +158,32 @@ The `usePopover` hook returns an object with three keys:
     - The two included props in this object are `onClick` and `onKeyDown`. Your own implementations of these will be overwritten if you follow the above code
 - `expanded`: A boolean of if the popover is expanded or not
 - `setExpanded`: A function that takes a single boolean parameter and sets the value of `expanded`
+
+## Popover Combobox
+
+A combobox being a way of selecting multiple items in a list at once, a popover combobox is just what it sounds like:
+A popup multi-select. This hook is meant to serve as a general utility for multi-select, pop-over combo-box.
+It composes the ability to have a popover, keyboard navigation multi-selects, and tests to see if the user had last used a keyboard
+
+
+| File                 | Function             |
+| -------------------- | -------------------- |
+| `usePopoverCombobox` | `usePopoverCombobox` |
+
+This hook take a single parameter:
+1) An array of values that can be selected that should be used to display the combobox
+
+### Returns 
+
+The `usePopoverCombobox` hook returns an object with three keys:
+
+- `selected`
+- `active`
+- `comboBoxListRef`
+- `parentRef`
+- `values`
+- `selectIndex`
+- `expanded`
+- `setExpanded`
+- `usedKeyboardLast`
+- `buttonProps`

@@ -1,66 +1,68 @@
 {
-  "name": "batteries-not-included",
-  "version": "0.0.1-alpha.3",
-  "description": "A utilities library with a batteries-not-included philosophy",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "scripts": {
-    "test": "jest",
-    "format": "eslint --fix ./src/**/*.ts",
-    "lint": "eslint ./src/**/*.ts",
-    "build": "tsc",
-    "release": "standard-version"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/unicorn-utterances/batteries-not-included.git"
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/unicorn-utterances/batteries-not-included/issues"
-  },
-  "homepage": "https://github.com/unicorn-utterances/batteries-not-included#readme",
-  "devDependencies": {
-    "@babel/core": "^7.7.7",
-    "@babel/plugin-proposal-optional-chaining": "^7.7.5",
-    "@babel/preset-env": "^7.7.7",
-    "@babel/preset-react": "^7.7.4",
-    "@babel/preset-typescript": "^7.7.7",
-    "@commitlint/cli": "^8.2.0",
-    "@commitlint/config-conventional": "^8.2.0",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.4.0",
-    "@testing-library/react-hooks": "^3.2.1",
-    "@types/jest": "^24.0.25",
-    "@typescript-eslint/eslint-plugin": "^2.14.0",
-    "@typescript-eslint/parser": "^2.14.0",
-    "babel-jest": "^24.9.0",
-    "eslint": "^5.16.0",
-    "eslint-config-prettier": "^6.9.0",
-    "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-react": "^7.17.0",
-    "husky": "^3.1.0",
-    "jest": "^24.9.0",
-    "jest-watch-typeahead": "^0.4.2",
-    "lint-staged": "^9.5.0",
-    "prettier": "^1.19.1",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-test-renderer": "^16.12.0",
-    "standard-version": "^7.0.1",
-    "ts-jest": "^24.2.0",
-    "typescript": "^3.7.4"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "lint-staged": {
-    "*.{ts,tsx}": [
-      "npm run format",
-      "git add"
-    ]
-  }
+	"name": "batteries-not-included",
+	"version": "0.0.1-alpha.3",
+	"description": "A utilities library with a batteries-not-included philosophy",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"test": "jest",
+		"format": "eslint --fix ./src/**/*.ts",
+		"lint": "eslint ./src/**/*.ts",
+		"build": "tsc",
+		"release": "standard-version"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/unicorn-utterances/batteries-not-included.git"
+	},
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/unicorn-utterances/batteries-not-included/issues"
+	},
+	"homepage": "https://github.com/unicorn-utterances/batteries-not-included#readme",
+	"peerDependencies": {
+		"react": ">=16.9.0",
+		"react-dom": ">=16.9.0"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.8.4",
+		"@babel/plugin-proposal-optional-chaining": "^7.8.3",
+		"@babel/preset-env": "^7.8.4",
+		"@babel/preset-react": "^7.8.3",
+		"@babel/preset-typescript": "^7.8.3",
+		"@commitlint/cli": "^8.2.0",
+		"@commitlint/config-conventional": "^8.2.0",
+		"@testing-library/jest-dom": "^4.2.4",
+		"@testing-library/react": "^9.4.0",
+		"@testing-library/react-hooks": "^3.2.1",
+		"@types/jest": "^24.0.25",
+		"@typescript-eslint/eslint-plugin": "^2.14.0",
+		"@typescript-eslint/parser": "^2.14.0",
+		"babel-jest": "^24.9.0",
+		"eslint": "^5.16.0",
+		"eslint-config-prettier": "^6.9.0",
+		"eslint-plugin-prettier": "^3.1.2",
+		"eslint-plugin-react": "^7.17.0",
+		"husky": "^3.1.0",
+		"jest": "^24.9.0",
+		"jest-watch-typeahead": "^0.4.2",
+		"lint-staged": "^9.5.0",
+		"prettier": "^1.19.1",
+		"react-test-renderer": "^16.12.0",
+		"standard-version": "^7.0.1",
+		"ts-jest": "^24.2.0",
+		"typescript": "^3.7.4"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged",
+			"commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+		}
+	},
+	"lint-staged": {
+		"*.{ts,tsx}": [
+			"npm run format",
+			"git add"
+		]
+	}
 }
