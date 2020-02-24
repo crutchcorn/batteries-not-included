@@ -69,11 +69,19 @@ export const useKeyboardListNavigation = (
 			switch (event.key) {
 				case "ArrowDown":
 					event.preventDefault();
-					_newIndex = normalizeNumber(focusedIndex + 1, 0, maxIndex);
+					if (focusedIndex === maxIndex) {
+						_newIndex = 0;
+					} else {
+						_newIndex = normalizeNumber(focusedIndex + 1, 0, maxIndex);
+					}
 					break;
 				case "ArrowUp":
 					event.preventDefault();
-					_newIndex = normalizeNumber(focusedIndex - 1, 0, maxIndex);
+					if (focusedIndex === 0) {
+						_newIndex = maxIndex;
+					} else {
+						_newIndex = normalizeNumber(focusedIndex - 1, 0, maxIndex);
+					}
 					break;
 				case "Home":
 					event.preventDefault();
