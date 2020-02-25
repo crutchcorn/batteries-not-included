@@ -57,7 +57,7 @@ export const useKeyboardListNavigation = (
 	const [focusedIndex, setFocusedIndex] = useState(0);
 
 	// Select whether to allow wrapping behavior or to restrict index movement within a numerical range
-	const numberValidatrionFn = wrapOnOverflow ? wrapNumber : normalizeNumber;
+	const numberValidationFn = wrapOnOverflow ? wrapNumber : normalizeNumber;
 
 	const maxIndex = maxLength - 1;
 
@@ -76,11 +76,11 @@ export const useKeyboardListNavigation = (
 			switch (event.key) {
 				case "ArrowDown":
 					event.preventDefault();
-					_newIndex = numberValidatrionFn(focusedIndex + 1, 0, maxIndex);
+					_newIndex = numberValidationFn(focusedIndex + 1, 0, maxIndex);
 					break;
 				case "ArrowUp":
 					event.preventDefault();
-					_newIndex = numberValidatrionFn(focusedIndex - 1, 0, maxIndex);
+					_newIndex = numberValidationFn(focusedIndex - 1, 0, maxIndex);
 					break;
 				case "Home":
 					event.preventDefault();
@@ -114,7 +114,7 @@ export const useKeyboardListNavigation = (
 	}, [focusedIndex, parentRef, enable, maxIndex, runOnIndexChange]);
 
 	const selectIndex = (i: number, e?: KeyboardSyntheticEvent) => {
-		setFocusedIndex(numberValidatrionFn(i, 0, maxIndex));
+		setFocusedIndex(numberValidationFn(i, 0, maxIndex));
 
 		if (runOnIndexChange) {
 			if (e && e.persist) e.persist();
