@@ -158,5 +158,5 @@ test("useKeyboardListNavigation handles overflow behavior", async () => {
 	expect(await findByText("Focused Index: 0")).toBeInTheDocument();
 
 	// OnSubmit is being called properly
-	expect(onSubmit).lastCalledWith(expect.any(Object), 2, 2);
+	expect(onSubmit).lastCalledWith(expect.any(Object), 2, 0);
 });

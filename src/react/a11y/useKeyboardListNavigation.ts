@@ -17,7 +17,7 @@
  */
 
 import { RefObject, SyntheticEvent, useEffect, useState } from "react";
-import { normalizeNumber } from "../../utils";
+import { normalizeNumber, wrapNumber } from "../../utils";
 
 type KeyboardSyntheticEvent = KeyboardEvent & Partial<SyntheticEvent>;
 
@@ -56,6 +56,8 @@ export const useKeyboardListNavigation = (
 ) => {
 	const [focusedIndex, setFocusedIndex] = useState(0);
 
+	const numberValidatrionFn = wrapOnOverflow ? wrapNumber : normalizeNumber;
+
 	const maxIndex = maxLength - 1;
 
 	// Arrow key handler
@@ -73,11 +75,11 @@ export const useKeyboardListNavigation = (
 			switch (event.key) {
 				case "ArrowDown":
 					event.preventDefault();
-					_newIndex = normalizeNumber(focusedIndex + 1, 0, maxIndex);
+					_newIndex = numberValidatrionFn(focusedIndex + 1, 0, maxIndex);
 					break;
 				case "ArrowUp":
 					event.preventDefault();
-					_newIndex = normalizeNumber(focusedIndex - 1, 0, maxIndex);
+					_newIndex = numberValidatrionFn(focusedIndex - 1, 0, maxIndex);
 					break;
 				case "Home":
 					event.preventDefault();
@@ -111,17 +113,7 @@ export const useKeyboardListNavigation = (
 	}, [focusedIndex, parentRef, enable, maxIndex, runOnIndexChange]);
 
 	const selectIndex = (i: number, e?: KeyboardSyntheticEvent) => {
-		if (wrapOnOverflow === true) {
-			if (i < 0) {
-				setFocusedIndex(maxIndex);
-			} else if (i > maxIndex) {
-				setFocusedIndex(0);
-			} else {
-				setFocusedIndex(i);
-			}
-		} else {
-			setFocusedIndex(normalizeNumber(i, 0, maxIndex));
-		}
+		setFocusedIndex(numberValidatrionFn(i, 0, maxIndex));
 
 		if (runOnIndexChange) {
 			if (e && e.persist) e.persist();
