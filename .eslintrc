@@ -16,7 +16,8 @@
 	"plugins": ["prettier"],
 	"rules": {
 		"prettier/prettier": "error",
-		"jsx-a11y/no-redundant-roles": "off"
+		"jsx-a11y/no-redundant-roles": "off",
+		"@typescript-eslint/explicit-function-return-type": false
 	},
 	"settings": {
 		"react": {
