@@ -1,6 +1,6 @@
 {
 	"name": "batteries-not-included",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "A utilities library with a batteries-not-included philosophy",
 	"main": "index.js",
 	"types": "index.d.ts",
