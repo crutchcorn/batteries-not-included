@@ -1,5 +1,5 @@
 /**
- * A function to return a safe value between two ranges.
+ * A function to allow wrapping from the beginning of a series of numbers to the end, and from the end of the series to the beginning.
  * @param {number} numberToNormalize - The number to check
  * @param {number} minIndex - This will be returned if the number is lower than it
  * @param {number} maxIndex - This will be returned if the number is higher than it

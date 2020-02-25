@@ -56,6 +56,7 @@ export const useKeyboardListNavigation = (
 ) => {
 	const [focusedIndex, setFocusedIndex] = useState(0);
 
+	// Select whether to allow wrapping behavior or to restrict index movement within a numerical range
 	const numberValidatrionFn = wrapOnOverflow ? wrapNumber : normalizeNumber;
 
 	const maxIndex = maxLength - 1;
