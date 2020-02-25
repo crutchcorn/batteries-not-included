@@ -17,7 +17,7 @@
  */
 
 import { RefObject, SyntheticEvent, useEffect, useState } from "react";
-import { normalizeNumber } from "../../utils";
+import { normalizeNumber, wrapNumber } from "../../utils";
 
 type KeyboardSyntheticEvent = KeyboardEvent & Partial<SyntheticEvent>;
 
@@ -34,23 +34,30 @@ export interface UseKeyboardListNavigationOptions {
 	maxLength?: number;
 	enable?: boolean;
 	runOnIndexChange?: UseKeyboardListNavigationSubmitFn;
+	wrapOnOverflow?: boolean;
 }
 
 /**
  * @param parentRef - The parent ref to bind the event handling to
- * @param maxLength - The maximum number that can be bound to
- * @param enable - Disable event handling
- * @param [runOnIndexChange] - An optional function to hook into the event handler logic
+ * @param $1
+ * @param $1.maxLength - The maximum number that can be bound to
+ * @param $1.enable - Disable event handling
+ * @param [$1.wrapOnOverflow] - If true, when max + 1 is reached, go to zero, etc. Defaults false
+ * @param [$1.runOnIndexChange] - An optional function to hook into the event handler logic
  */
 export const useKeyboardListNavigation = (
 	parentRef: RefObject<any>,
 	{
 		maxLength = Infinity,
 		enable = true,
-		runOnIndexChange
+		runOnIndexChange,
+		wrapOnOverflow = false
 	}: UseKeyboardListNavigationOptions
 ) => {
 	const [focusedIndex, setFocusedIndex] = useState(0);
+
+	// Select whether to allow wrapping behavior or to restrict index movement within a numerical range
+	const numberValidationFn = wrapOnOverflow ? wrapNumber : normalizeNumber;
 
 	const maxIndex = maxLength - 1;
 
@@ -69,11 +76,11 @@ export const useKeyboardListNavigation = (
 			switch (event.key) {
 				case "ArrowDown":
 					event.preventDefault();
-					_newIndex = normalizeNumber(focusedIndex + 1, 0, maxIndex);
+					_newIndex = numberValidationFn(focusedIndex + 1, 0, maxIndex);
 					break;
 				case "ArrowUp":
 					event.preventDefault();
-					_newIndex = normalizeNumber(focusedIndex - 1, 0, maxIndex);
+					_newIndex = numberValidationFn(focusedIndex - 1, 0, maxIndex);
 					break;
 				case "Home":
 					event.preventDefault();
@@ -107,7 +114,7 @@ export const useKeyboardListNavigation = (
 	}, [focusedIndex, parentRef, enable, maxIndex, runOnIndexChange]);
 
 	const selectIndex = (i: number, e?: KeyboardSyntheticEvent) => {
-		setFocusedIndex(normalizeNumber(i, 0, maxIndex));
+		setFocusedIndex(numberValidationFn(i, 0, maxIndex));
 
 		if (runOnIndexChange) {
 			if (e && e.persist) e.persist();

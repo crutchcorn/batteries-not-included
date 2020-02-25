@@ -71,6 +71,7 @@ This hook takes two parameters:
     - If this is not defined, home and end buttons will not work
 - `options.enable`: A boolean of if it should be enabled or not
 - `options.runOnIndexChange`: A callback that should be ran whenever the selected index is changed
+- `options.wrapOnOverflow`: A boolean. When false, we force numbers within set min/max constraints, otherwise if true, we allow negative numbers to set the focused index to the minimum and numbers larger than the maximum to set the focused index to the minimum value
 
 #### Run On Index Change Callback
 
