@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.3](https://github.com/unicorn-utterances/batteries-not-included/compare/v0.0.2...v0.0.3) (2020-03-07)
+
+
+### Features
+
+* added array differ to see added and removed items ([7bff89e](https://github.com/unicorn-utterances/batteries-not-included/commit/7bff89e3d1380a045af9f24da7f01ec1fce3b21f))
+
 ### [0.0.2](https://github.com/unicorn-utterances/batteries-not-included/compare/v0.0.1...v0.0.2) (2020-02-25)
 
 
