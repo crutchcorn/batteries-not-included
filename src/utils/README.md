@@ -114,3 +114,23 @@ Bananas |     1 |    -129389176
 > that are not meant to be public.
 > Also, if you use this for outputting data in Node, you may be better suited
 > by `console.table`, as in some circumstances it is interactive
+
+
+### Diff An Array
+
+| File                          | Function                   |
+| ----------------------------- | -------------------------- |
+| `get-array-added-and-removed` | `getArrayAddedAndRemoved`  |
+
+This function take two arrays and diffs them, telling you what items have been removed from the first array in the second array
+and what items have been added in the second array that wasn't originally in the first array
+
+The function takes three parameters:
+
+1) The old array to compare
+2) The new array to compare
+3) A function that acts as a comparison function. It recieves one item from the old array and one item from the old array and should return a boolean if the two items are the same
+
+```javascript
+getArrayAddedAndRemoved([1,2,3], [2,3,4]); // {added: [4], removed: [1]}
+```
