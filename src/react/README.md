@@ -3,6 +3,7 @@ As many of these packages are hooks, these packages expect a peer dependency of 
 There are various sub-utilities to the React section of this package:
 
 - [A11Y helper utilities](./a11y/README.md)
+- [Generic data table](./table/README.md)
 - [Event listeners outside a specific element](./outside-events/README.md)
 
 It is suggested that all of these modules are imported from the following:

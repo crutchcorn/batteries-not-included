@@ -17,6 +17,7 @@
 	"rules": {
 		"prettier/prettier": "error",
 		"jsx-a11y/no-redundant-roles": "off",
+		"react/prop-types": "off",
 		"@typescript-eslint/explicit-function-return-type": false
 	},
 	"settings": {
