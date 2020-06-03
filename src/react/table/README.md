@@ -9,9 +9,8 @@ Likewise, when using `body`, you'll want to supply your `td`
 ```typescript jsx
 import * as React from "react";
 import { render } from "react-dom";
-import "./style.css";
 
-import { DataTable, DataTableColumn } from "./index";
+import { DataTable, DataTableColumn } from "batteries-not-included/react";
 
 const people = [
   { name: "Pedro Spencer", age: { val: "25" }, id: 10 },
@@ -27,43 +26,45 @@ const people = [
   { name: "Sunny Reynolds", age: { val: "11" }, id: 20 }
 ];
 
+
 const App = () => {
   return (
-    <DataTable
-      items={people}
-      itemKeyGetter={p => p.id}
-    >
-      <DataTableColumn
-        value={p => p.name}
-        name="Name"
-        columnKey="name"
-        header={name => (
-          <th>
-            <button style={{ background: "black", color: "white" }}>
-              {name}
-            </button>
-          </th>
-        )}
-      />
-      <DataTableColumn
-        value={p => p.age.val}
-        name="Age"
-        columnKey="age"
-        body={(val, meta) => {
-          if (meta.cIndex === 0) {
-            return <th scope="row" >{val}</th>;
-          }
+      <DataTable
+          items={people}
+          itemKeyGetter={p => p.id}
+      >
+        <DataTableColumn
+            value={p => p.name}
+            name="Name"
+            columnKey="name"
+            header={name => (
+                <th>
+                  <button style={{ background: "black", color: "white" }}>
+                    {name}
+                  </button>
+                </th>
+            )}
+        />
+        <DataTableColumn
+            value={p => p.age.val}
+            name="Age"
+            columnKey="age"
+        >
+            {(val, meta) => {
+                if (meta.cIndex === 0) {
+                    return <th scope="row" >{val}</th>;
+                }
 
-          return (
-            <td>
-              <button style={{ background: "black", color: "white" }}>
-                Val: {val} Row: {meta.rIndex} Column: {meta.cIndex}
-              </button>
-            </td>
-          );
-        }}
-      />
-    </DataTable>
+                return (
+                    <td>
+                        <button style={{ background: "black", color: "white" }}>
+                            Val: {val} Row: {meta.rIndex} Column: {meta.cIndex}
+                        </button>
+                    </td>
+                );
+            }}
+        </DataTableColumn>
+      </DataTable>
   );
 };
 
