@@ -12,12 +12,14 @@ interface DataTableProps<T = any> {
 	// This should be used to get the `key` prop for each item
 	itemKeyGetter: (val: T) => any;
 	trProps?: (meta: TrPropsFnProps) => React.HTMLAttributes<HTMLTableRowElement>;
+	tableProps?: React.HTMLAttributes<HTMLTableElement>;
 }
 
 export const DataTable: React.FC<DataTableProps> = ({
 	items,
 	itemKeyGetter,
 	trProps = () => {},
+	tableProps = {},
 	children
 }) => {
 	const childrenArr = React.Children.toArray(children);
@@ -64,7 +66,7 @@ export const DataTable: React.FC<DataTableProps> = ({
 	const trPropsHeadObj = trProps({ rIndex: -1 });
 
 	return (
-		<table>
+		<table {...tableProps}>
 			<thead>
 				<tr {...trPropsHeadObj}>{headerEls}</tr>
 			</thead>

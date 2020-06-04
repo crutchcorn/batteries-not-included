@@ -33,8 +33,9 @@ const App = () => {
           items={people}
           itemKeyGetter={p => p.id}
           trProps={({rIndex}) => ({
-              onClick: () => {console.log('hello', rIndex)}
+              onClick: () => {console.log('You clicked on row:', rIndex)}
           })}
+          tableProps={{onClick: () => console.log("You clicked on the table")}}
       >
         <DataTableColumn
             value={p => p.name}
