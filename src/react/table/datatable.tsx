@@ -2,15 +2,22 @@ import * as React from "react";
 import { DataTableColumnProps } from "./datatable-column";
 import { DefaultBody, DefaultHeader } from "./defaults";
 
+interface TrPropsFnProps {
+	// This will be `-1` for header, since we're already defining `0` as row `0` elsewhere
+	rIndex: number;
+}
+
 interface DataTableProps<T = any> {
 	items: T[];
 	// This should be used to get the `key` prop for each item
 	itemKeyGetter: (val: T) => any;
+	trProps?: (meta: TrPropsFnProps) => React.HTMLAttributes<HTMLTableRowElement>;
 }
 
 export const DataTable: React.FC<DataTableProps> = ({
 	items,
 	itemKeyGetter,
+	trProps = () => {},
 	children
 }) => {
 	const childrenArr = React.Children.toArray(children);
@@ -45,13 +52,21 @@ export const DataTable: React.FC<DataTableProps> = ({
 			return <DefaultBody val={val} key={key} />;
 		});
 
-		return <tr key={`${itemKey}-row`}>{rowEl}</tr>;
+		const trPropsObj = trProps({ rIndex });
+
+		return (
+			<tr key={`${itemKey}-row`} {...trPropsObj}>
+				{rowEl}
+			</tr>
+		);
 	});
+
+	const trPropsHeadObj = trProps({ rIndex: -1 });
 
 	return (
 		<table>
 			<thead>
-				<tr>{headerEls}</tr>
+				<tr {...trPropsHeadObj}>{headerEls}</tr>
 			</thead>
 			<tbody>{columnEls}</tbody>
 		</table>
