@@ -3,7 +3,8 @@ import * as React from "react";
 export interface DataTableColumnProps<T = any, ValT = any> {
 	// The return value will be used as the `value` for body
 	value: (obj: T) => ValT;
-	header?: (name: string) => React.ReactNode;
+	header?: (meta: { cIndex: number; columnName: string }) => React.ReactNode;
+	footer?: (meta: { cIndex: number; columnName: string }) => React.ReactNode;
 	children?: (
 		val: ValT,
 		meta: { cIndex: number; rIndex: number }

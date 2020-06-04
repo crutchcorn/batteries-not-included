@@ -48,6 +48,11 @@ const App = () => {
                   </button>
                 </th>
             )}
+            footer={({ columnName }) => (
+                <td>
+                    <button style={{ background: 'red', color: 'white' }}>{columnName} Footer!</button>
+                </td>
+            )}
         />
         <DataTableColumn
             value={p => p.age.val}

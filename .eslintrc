@@ -15,7 +15,12 @@
 	},
 	"plugins": ["prettier"],
 	"rules": {
-		"prettier/prettier": "error",
+		"prettier/prettier": [
+			"error",
+			{
+				"endOfLine": "auto"
+			}
+		],
 		"jsx-a11y/no-redundant-roles": "off",
 		"react/prop-types": "off",
 		"@typescript-eslint/no-empty-function": false,
