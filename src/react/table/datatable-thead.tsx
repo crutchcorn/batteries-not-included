@@ -1,8 +1,8 @@
 import * as React from "react";
-import { THeadDisplayName } from "./consts";
+import { ColumnDisplayName } from "./consts";
 
 export const DataTableTHead = () => {
 	return <thead>Hello</thead>;
 };
 
-DataTableTHead.displayName = THeadDisplayName;
+DataTableTHead.displayName = ColumnDisplayName;
