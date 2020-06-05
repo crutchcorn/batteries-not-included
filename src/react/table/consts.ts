@@ -1,1 +1,1 @@
-export const THeadDisplayName = "__TableTHeadComp";
+export const ColumnDisplayName = "__TableColumnComp";

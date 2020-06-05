@@ -82,6 +82,7 @@ const App = () => {
           })}
           tableProps={{onClick: () => console.log("You clicked on the table")}}
       >
+        <caption>This is a test table, please change it before prod</caption>
         <DataTableColumn
             value={p => p.name}
             name="Name"

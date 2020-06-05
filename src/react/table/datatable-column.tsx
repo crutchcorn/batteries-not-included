@@ -1,4 +1,5 @@
 import * as React from "react";
+import { ColumnDisplayName } from "./consts";
 
 export interface DataTableColumnProps<T = any, ValT = any> {
 	// The return value will be used as the `value` for body
@@ -18,3 +19,5 @@ export const DataTableColumn = ({ children }: DataTableColumnProps) => {
 	// This is a `noop`. See the './defaults' file
 	return children as any;
 };
+
+DataTableColumn.displayName = ColumnDisplayName;

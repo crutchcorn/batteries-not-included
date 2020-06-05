@@ -1,7 +1,7 @@
 import * as React from "react";
 import { DataTableColumnProps } from "./datatable-column";
 import { DefaultBody, DefaultHeader, DefaultFooter } from "./defaults";
-import { THeadDisplayName } from "./consts";
+import { ColumnDisplayName } from "./consts";
 
 interface TrPropsFnProps {
 	// This will be `-1` for header, since we're already defining `0` as row `0` elsewhere
@@ -26,19 +26,19 @@ export const DataTable: React.FC<DataTableProps> = ({
 }) => {
 	const childrenArr = React.Children.toArray(children);
 
-	const { columnChildren, theadChildren } = childrenArr.reduce<{
+	const { columnChildren, otherChildren } = childrenArr.reduce<{
 		columnChildren: React.ReactNode[];
-		theadChildren: React.ReactNode[];
+		otherChildren: React.ReactNode[];
 	}>(
 		(prev, el: any) => {
-			if (el.type.displayName === THeadDisplayName) {
-				prev.theadChildren.push(el);
-			} else {
+			if (el.type.displayName === ColumnDisplayName) {
 				prev.columnChildren.push(el);
+			} else {
+				prev.otherChildren.push(el);
 			}
 			return prev;
 		},
-		{ columnChildren: [], theadChildren: [] }
+		{ columnChildren: [], otherChildren: [] }
 	);
 
 	/**
@@ -125,7 +125,7 @@ export const DataTable: React.FC<DataTableProps> = ({
 			<thead>
 				<tr {...trPropsHeadObj}>{headerEls}</tr>
 			</thead>
-			{theadChildren}
+			{otherChildren}
 			<tbody>{columnEls}</tbody>
 			{tfoot}
 		</table>
