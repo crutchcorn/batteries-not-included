@@ -4,7 +4,52 @@ When `header` is supplied, you _must_ wrap your element in a `th`, as it will no
 
 Likewise, when using `body`, you'll want to supply your `td`
 
-# Example
+# Simple Example
+
+```typescript jsx
+import * as React from "react";
+import { render } from "react-dom";
+
+import { DataTable, DataTableColumn } from "batteries-not-included/react";
+
+const people = [
+  { name: "Pedro Spencer", age: { val: "25" }, id: 10 },
+  { name: "Benjamin Auer", age: { val: "12" }, id: 11 },
+  { name: "Jerome Blick Jr.", age: { val: "35" }, id: 12 },
+  { name: "Sabryna Friesen", age: { val: "2" }, id: 13 },
+  { name: "Joel Sauer", age: { val: "28" }, id: 14 },
+  { name: "Blair Wolff", age: { val: "85" }, id: 15 },
+  { name: "Constance Yundt", age: { val: "90" }, id: 16 },
+  { name: "Lourdes Pacocha", age: { val: "56" }, id: 17 },
+  { name: "Tamia Kshlerin", age: { val: "5" }, id: 18 },
+  { name: "Willis Tremblay", age: { val: "22" }, id: 19 },
+  { name: "Sunny Reynolds", age: { val: "11" }, id: 20 }
+];
+
+const App = () => {
+  return (
+      <DataTable
+          items={people}
+          itemKeyGetter={p => p.id}
+      >
+        <DataTableColumn
+            value={p => p.name}
+            name="Name"
+            columnKey="name"
+        />
+        <DataTableColumn
+            value={p => p.age.val}
+            name="Age"
+            columnKey="age"
+        />
+      </DataTable>
+  );
+};
+
+render(<App />, document.getElementById("root"));
+```
+
+# Advanced Example
 
 ```typescript jsx
 import * as React from "react";

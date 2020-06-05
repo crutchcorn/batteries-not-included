@@ -1,6 +1,7 @@
 import * as React from "react";
 import { DataTableColumnProps } from "./datatable-column";
 import { DefaultBody, DefaultHeader, DefaultFooter } from "./defaults";
+import { THeadDisplayName } from "./consts";
 
 interface TrPropsFnProps {
 	// This will be `-1` for header, since we're already defining `0` as row `0` elsewhere
@@ -25,10 +26,25 @@ export const DataTable: React.FC<DataTableProps> = ({
 }) => {
 	const childrenArr = React.Children.toArray(children);
 
+	const { columnChildren, theadChildren } = childrenArr.reduce<{
+		columnChildren: React.ReactNode[];
+		theadChildren: React.ReactNode[];
+	}>(
+		(prev, el: any) => {
+			if (el.type.displayName === THeadDisplayName) {
+				prev.theadChildren.push(el);
+			} else {
+				prev.columnChildren.push(el);
+			}
+			return prev;
+		},
+		{ columnChildren: [], theadChildren: [] }
+	);
+
 	/**
 	 * Logic to apply column headers
 	 */
-	const headerEls = childrenArr.map((columnChild, cIndex) => {
+	const headerEls = columnChildren.map((columnChild, cIndex) => {
 		const columnProps: DataTableColumnProps = (columnChild as any).props;
 		const { columnKey, header, name: columnName } = columnProps;
 
@@ -45,7 +61,7 @@ export const DataTable: React.FC<DataTableProps> = ({
 	 */
 	const columnEls = items.map((item, rIndex) => {
 		const itemKey = itemKeyGetter(item);
-		const rowEl = childrenArr.map((columnChild, cIndex) => {
+		const rowEl = columnChildren.map((columnChild, cIndex) => {
 			const columnProps: DataTableColumnProps = (columnChild as any).props;
 			const { value, columnKey, children: columnBodyFn } = columnProps;
 
@@ -75,13 +91,13 @@ export const DataTable: React.FC<DataTableProps> = ({
 	 */
 	let tfoot = null;
 
-	const hasFooter = childrenArr.find(columnChild => {
+	const hasFooter = columnChildren.find(columnChild => {
 		const columnProps: DataTableColumnProps = (columnChild as any).props;
 		return !!columnProps.footer;
 	});
 
 	if (hasFooter) {
-		const tfootChildren = childrenArr.map((columnChild, cIndex) => {
+		const tfootChildren = columnChildren.map((columnChild, cIndex) => {
 			const columnProps: DataTableColumnProps = (columnChild as any).props;
 			const { columnKey, footer, name: columnName } = columnProps;
 
@@ -109,6 +125,7 @@ export const DataTable: React.FC<DataTableProps> = ({
 			<thead>
 				<tr {...trPropsHeadObj}>{headerEls}</tr>
 			</thead>
+			{theadChildren}
 			<tbody>{columnEls}</tbody>
 			{tfoot}
 		</table>
