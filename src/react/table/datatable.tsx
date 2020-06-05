@@ -65,7 +65,12 @@ export const DataTable: React.FC<DataTableProps> = ({
 			const columnProps: DataTableColumnProps = (columnChild as any).props;
 			const { value, columnKey, children: columnBodyFn } = columnProps;
 
-			const val = value(item);
+			let val;
+			if (!value) {
+				val = item[columnKey];
+			} else {
+				val = value(item);
+			}
 
 			const key = `${columnKey}${itemKey}`;
 

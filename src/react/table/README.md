@@ -33,12 +33,10 @@ const App = () => {
           itemKeyGetter={p => p.id}
       >
         <DataTableColumn
-            value={p => p.name}
             name="Name"
             columnKey="name"
         />
         <DataTableColumn
-            value={p => p.age.val}
             name="Age"
             columnKey="age"
         />
