@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0](https://github.com/unicorn-utterances/batteries-not-included/compare/v0.0.3...v0.1.0) (2020-06-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* **table:** This removes the ability to have multiple `thead` and `tfoot` els
+* **table:** `header` prop inputs have changed. Instead of `name`, get the column name by `({columnName})`
+* **table:** `body` prop has been dropped. Please use a functional child now to define a body template
+
+### Features
+
+* **table:** added `trProps` function support ([c1f9348](https://github.com/unicorn-utterances/batteries-not-included/commit/c1f9348f6e94a892b5b98899313bb000f5607ca2))
+* **table:** added footer support ([2cf9d3f](https://github.com/unicorn-utterances/batteries-not-included/commit/2cf9d3fbf539d356ec2c0cd846b88eec57495b94))
+* **table:** added initial version of datatable component ([c24b639](https://github.com/unicorn-utterances/batteries-not-included/commit/c24b6394a164e2aea8f596379a3deef71cbe67f6))
+* **table:** added support for column and colgroup ([2505045](https://github.com/unicorn-utterances/batteries-not-included/commit/25050456bb4ecd1e509118aefadcd2b0c5a1092f))
+* **table:** added table props passing ([9641f32](https://github.com/unicorn-utterances/batteries-not-included/commit/9641f32b2c4a31118ef82eadee25610d22cecad0))
+* **table:** initial work to add support for multi-thead items ([7d20a9e](https://github.com/unicorn-utterances/batteries-not-included/commit/7d20a9eab4c15c6a0160b5a16d1db1acbb228a0a))
+* **table:** made `value` function optional based on `columnKey` value ([1c5567b](https://github.com/unicorn-utterances/batteries-not-included/commit/1c5567bd98aa66cde97de18737e93dac94178a0f))
+
+
+* **table:** move body prop to functional child ([bc63ce3](https://github.com/unicorn-utterances/batteries-not-included/commit/bc63ce361a8ded0cb3190e11b4c913a956bdacb3))
+
 ### [0.0.3](https://github.com/unicorn-utterances/batteries-not-included/compare/v0.0.2...v0.0.3) (2020-03-07)
 
 
