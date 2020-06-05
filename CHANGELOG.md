@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.1](https://github.com/unicorn-utterances/batteries-not-included/compare/v0.1.0...v0.1.1) (2020-06-05)
+
+
+### Bug Fixes
+
+* **table:** fix build issue ([a1018ab](https://github.com/unicorn-utterances/batteries-not-included/commit/a1018abd1ad525acead1a8ae94ec55f6cbb41afb))
+
 ## [0.1.0](https://github.com/unicorn-utterances/batteries-not-included/compare/v0.0.3...v0.1.0) (2020-06-05)
 
 
