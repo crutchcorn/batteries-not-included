@@ -7,7 +7,7 @@
 import { useMemo, useRef, useState } from "react";
 import {
 	useKeyboardListNavigation,
-	UseKeyboardListNavigationSubmitFn
+	UseKeyboardListNavigationSubmitFn,
 } from "./useKeyboardListNavigation";
 import { useUsedKeyboardLast } from "./useUsedKeyboardLast";
 import { usePopover } from "./usePopover";
@@ -33,7 +33,7 @@ export const usePopoverCombobox = <T>(arrVal: T[]) => {
 			 * problems when dealing with clicking on an item many times
 			 * @see https://reactjs.org/docs/hooks-reference.html#functional-updates
 			 */
-			setManualUpdateIndex(val => val + 1);
+			setManualUpdateIndex((val) => val + 1);
 		}
 	);
 
@@ -58,10 +58,8 @@ export const usePopoverCombobox = <T>(arrVal: T[]) => {
 		{ onBtnClick: resetLastUsedKeyboard }
 	);
 
-	const {
-		resetLastUsedKeyboard: tmpResetUsedKeyboardLast,
-		usedKeyboardLast
-	} = useUsedKeyboardLast(comboBoxListRef, { enable: expanded });
+	const { resetLastUsedKeyboard: tmpResetUsedKeyboardLast, usedKeyboardLast } =
+		useUsedKeyboardLast(comboBoxListRef, { enable: expanded });
 
 	resetLastUsedKeyboardRef.current = tmpResetUsedKeyboardLast;
 
@@ -126,7 +124,7 @@ export const usePopoverCombobox = <T>(arrVal: T[]) => {
 		{
 			maxLength: internalArr.length,
 			enable: expanded,
-			runOnIndexChange
+			runOnIndexChange,
 		}
 	);
 
@@ -137,7 +135,7 @@ export const usePopoverCombobox = <T>(arrVal: T[]) => {
 
 	// This will be empty if `enableSelect` is null
 	const selectedArr = useMemo(
-		() => internalArr.filter(item => item.selected),
+		() => internalArr.filter((item) => item.selected),
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 		[internalArr, manuallyUpdateSelectedArrIndex]
 	);
@@ -155,6 +153,6 @@ export const usePopoverCombobox = <T>(arrVal: T[]) => {
 		expanded,
 		setExpanded,
 		usedKeyboardLast,
-		buttonProps
+		buttonProps,
 	};
 };

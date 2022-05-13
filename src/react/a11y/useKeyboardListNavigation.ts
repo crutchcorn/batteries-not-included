@@ -51,7 +51,7 @@ export const useKeyboardListNavigation = (
 		maxLength = Infinity,
 		enable = true,
 		runOnIndexChange,
-		wrapOnOverflow = false
+		wrapOnOverflow = false,
 	}: UseKeyboardListNavigationOptions
 ) => {
 	const [focusedIndex, setFocusedIndex] = useState(0);
@@ -124,6 +124,6 @@ export const useKeyboardListNavigation = (
 
 	return {
 		focusedIndex,
-		selectIndex
+		selectIndex,
 	};
 };

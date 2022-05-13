@@ -22,7 +22,7 @@ describe("Tablize", () => {
 			["Item", "Count"],
 			["Apples", 3],
 			["Oranges", 399],
-			["Bananas", 1]
+			["Bananas", 1],
 		];
 
 		const output = tablize(twoDArray);
@@ -35,7 +35,7 @@ describe("Tablize", () => {
 			["Item", "Count", "Another count"],
 			["Apples", 3, 1939889988],
 			["Oranges", 399, 213],
-			["Bananas", 1, -129389176]
+			["Bananas", 1, -129389176],
 		];
 
 		const output = tablize(twoDArray);

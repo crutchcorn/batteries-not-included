@@ -13,7 +13,7 @@ export const getArrayAddedAndRemoved = <T>(
 	const removed: T[] = [];
 
 	for (const shortItem of shortestList) {
-		const indexToRemoveFromAdded = added.findIndex(longItem =>
+		const indexToRemoveFromAdded = added.findIndex((longItem) =>
 			compareFn(shortItem, longItem)
 		);
 
@@ -27,6 +27,6 @@ export const getArrayAddedAndRemoved = <T>(
 
 	return {
 		added: shouldFlipAtEndToMakeMatchOriginalArrOrder ? removed : added,
-		removed: shouldFlipAtEndToMakeMatchOriginalArrOrder ? added : removed
+		removed: shouldFlipAtEndToMakeMatchOriginalArrOrder ? added : removed,
 	};
 };

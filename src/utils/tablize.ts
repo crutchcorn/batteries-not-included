@@ -26,8 +26,8 @@ export const tablize = <T>(twoDimentionalArray: T[][]): string => {
 
 	const copyArray = [...twoDimentionalArray];
 
-	const headers: string[] = (copyArray.shift() as unknown) as string[];
-	const body: T[][] = (copyArray as unknown) as T[][];
+	const headers: string[] = copyArray.shift() as unknown as string[];
+	const body: T[][] = copyArray as unknown as T[][];
 
 	// Get the spaced out versions of the strings for all of the headers
 	const headersStrings = headers.map(

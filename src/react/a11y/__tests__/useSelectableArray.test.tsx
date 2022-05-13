@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { useSelectableArray } from "../useSelectableArray";
-import { renderHook, act } from "@testing-library/react-hooks";
+import { renderHook, act } from "@testing-library/react";
 
 test("useSelectableArray handles everything", async () => {
 	const runAfterSelectChange = jest.fn();
@@ -17,7 +17,7 @@ test("useSelectableArray handles everything", async () => {
 	const initialExpectedVal = [
 		{ id: 1, val: { objNum: 1 }, index: 0, selected: false },
 		{ id: 2, val: { objNum: 2 }, index: 1, selected: false },
-		{ id: 3, val: { objNum: 3 }, index: 2, selected: false }
+		{ id: 3, val: { objNum: 3 }, index: 2, selected: false },
 	];
 
 	const { internalArr, selectAll, markAsSelected } = result.current;

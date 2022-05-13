@@ -37,6 +37,6 @@ export const useUsedKeyboardLast = (
 
 	return {
 		usedKeyboardLast,
-		resetLastUsedKeyboard
+		resetLastUsedKeyboard,
 	};
 };

@@ -26,7 +26,7 @@ const getNewArr = <T>(valArr: T[]): UseSelectableArrayInternalVal<T>[] => {
 			id: genId(),
 			val,
 			index: i,
-			selected: false
+			selected: false,
 		};
 	});
 };
@@ -87,7 +87,7 @@ export const useSelectableArray = <T>(
 
 			if (i === arr.length - 1) {
 				runAfterSelectChange && runAfterSelectChange();
-				setTrackNum(val => val + 1);
+				setTrackNum((val) => val + 1);
 			}
 		});
 	}, [runAfterSelectChange, currInternalArr]);
@@ -96,6 +96,6 @@ export const useSelectableArray = <T>(
 		selectAll,
 		markAsSelected,
 		internalArr: internalArrRef.current,
-		_trackingNum
+		_trackingNum,
 	};
 };
