@@ -17,12 +17,12 @@ interface DataTableProps<T = any> {
 	tableProps?: React.HTMLAttributes<HTMLTableElement>;
 }
 
-export const DataTable: React.FC<DataTableProps> = ({
+export const DataTable: React.FC<React.PropsWithChildren<DataTableProps>> = ({
 	items,
 	itemKeyGetter,
 	trProps = () => {},
 	tableProps = {},
-	children
+	children,
 }) => {
 	const childrenArr = React.Children.toArray(children);
 
@@ -96,7 +96,7 @@ export const DataTable: React.FC<DataTableProps> = ({
 	 */
 	let tfoot = null;
 
-	const hasFooter = columnChildren.find(columnChild => {
+	const hasFooter = columnChildren.find((columnChild) => {
 		const columnProps: DataTableColumnProps = (columnChild as any).props;
 		return !!columnProps.footer;
 	});

@@ -10,7 +10,13 @@
  * 🐛 Doesn't seem to close on focus loss
  *       Needs an optional prop (?)
  */
-import { RefObject, useCallback, useEffect, useState } from "react";
+import {
+	RefObject,
+	SyntheticEvent,
+	useCallback,
+	useEffect,
+	useState,
+} from "react";
 import { useOutsideClick, useOutsideFocus } from "../outside-events";
 
 interface UsePopoverOptions {
@@ -34,7 +40,7 @@ export const usePopover = (
 	const [expanded, setExpanded] = useState(false);
 
 	const onClick = useCallback(
-		(e) => {
+		(e: SyntheticEvent & MouseEvent) => {
 			const newVal = !expanded;
 			setExpanded(newVal);
 			if (onBtnClick) {
@@ -46,7 +52,7 @@ export const usePopover = (
 	);
 
 	const onKeyDown = useCallback(
-		(e) => {
+		(e: SyntheticEvent & KeyboardEvent) => {
 			const newVal = !expanded;
 			if (e.key === "Enter" || e.key === " ") {
 				e.preventDefault();
