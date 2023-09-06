@@ -1,32 +1,32 @@
-<p align="center">
-    <img alt="No batteries included logo" src="./logo.png"/>
-</p>
-<h1 align="center">
-  Batteries Not Included
-</h1>
 <div align="center">
+<h1>Batteries Not Included</h1>
 
-[![Our npm path](https://badgen.net/npm/v/batteries-not-included)](https://www.npmjs.com/package/batteries-not-included/)
-[![Join chat on Discord](https://badgen.net/badge/discord/join%20chat/7289DA?icon=discord)](https://discord.gg/FMcvc6T)
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
-[![Master Branch Build Status](https://travis-ci.org/unicorn-utterances/batteries-not-included.svg?branch=master)](https://travis-ci.org/unicorn-utterances/batteries-not-included)
+<img
+height="320"
+width="320"
+alt="An empty battery compartment"
+src="./docs/public/logo.svg"
+/>
+
+<p>Highly configurable React & JavaScript utilities</p>
 
 </div>
 
-We've all been there, using a library we've found that works well for just about every task you throw at it; until it doesn't.
-There's some configuration that the developers have placed in the codebase that prevents you from using it.
 
-Maybe there's some UI element you end up re-writing the logic for various times and wish there was a generic abstraction you could base them all off of?
+<div align="center">
 
-That's the goal of this library: Provide developers a set of "batteries-not-included" generic utilities to take and base your code off of. What does "no-batteries-included" mean? We want to make no assumptions about the
-places you'll be using the code. By making these utilities small-scale and abstracted, we have the ability to make our code modular and highly customizable.
+[![Build Status](https://img.shields.io/github/actions/workflow/status/crutchcorn/batteries-not-included/build.yml?branch=main)](https://github.com/crutchcorn/batteries-not-included/actions/workflows/validate.yml?query=branch%3Amain)
+[![Test Status](https://img.shields.io/github/actions/workflow/status/crutchcorn/batteries-not-included/test.yml?branch=main&label=tests)](https://github.com/crutchcorn/batteries-not-included/actions/workflows/validate.yml?query=branch%3Amain)
+[![Pre-release](https://img.shields.io/npm/v/batteries-not-included.svg)](https://npm.im/batteries-not-included)
+[![gzip size](https://img.badgesize.io/https://unpkg.com/batteries-not-included@latest/dist/batteries-not-included.cjs?compression=gzip)](https://unpkg.com/browse/batteries-not-included@latest/dist/batteries-not-included.main.cjs)
+[![license](https://badgen.now.sh/badge/license/MIT)](./LICENSE.md)
 
-Still having a hard time understanding what I mean? That's perfectly normal. Take a look around our packages for various items:
+</div>
 
-- [React A11Y Utilities](./src/react/README.md)
-- [JavaScript Utilities](./src/utils/README.md)
-- More coming soon
 
-While this package is in a pre-release stage, we will be following the semver
-release schedule. If there is a breaking change in the pre-release state, we will bump the `minor`
-number.
+Visit https://crutchcorn.github.io/batteries-not-included to get started with `batteries-not-included`.
+
+# Contributing
+If you've ever wanted to contribute to open source, now is your chance!
+
+See the [contributing docs](./CONTRIBUTING.md) for more information

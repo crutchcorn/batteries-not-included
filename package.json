@@ -1,70 +1,118 @@
 {
-	"name": "batteries-not-included",
-	"version": "0.1.1",
-	"description": "A utilities library with a batteries-not-included philosophy",
-	"main": "dist/index.js",
-	"types": "dist/index.d.ts",
-	"scripts": {
-		"test": "jest",
-		"format": "eslint --fix ./src/**/*.ts",
-		"lint": "eslint ./src/**/*.ts",
-		"build": "run-s build:clean build:tsc build:copy",
-		"build:clean": "rimraf ./dist",
-		"build:tsc": "tsc",
-		"build:copy": "run-p build:copy:**",
-		"build:copy:package": "copyfiles -u 1 ./dist-files/package.json ./dist",
-		"build:copy:mdroot": "copyfiles ./*.md ./dist",
-		"build:copy:mddist": "copyfiles -u 1 ./src/**/*.md ./dist",
-		"release": "standard-version",
-		"prepare": "husky install"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/unicorn-utterances/batteries-not-included.git"
-	},
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/unicorn-utterances/batteries-not-included/issues"
-	},
-	"homepage": "https://github.com/unicorn-utterances/batteries-not-included#readme",
-	"devDependencies": {
-		"@babel/core": "^7.17.10",
-		"@babel/plugin-proposal-optional-chaining": "^7.16.7",
-		"@babel/preset-env": "^7.17.10",
-		"@babel/preset-react": "^7.16.7",
-		"@babel/preset-typescript": "^7.16.7",
-		"@commitlint/cli": "^16.2.4",
-		"@commitlint/config-conventional": "^16.2.4",
-		"@testing-library/jest-dom": "^5.16.4",
-		"@testing-library/react": "^13.2.0",
-		"@types/jest": "^27.5.1",
-		"@typescript-eslint/eslint-plugin": "^5.23.0",
-		"@typescript-eslint/parser": "^5.23.0",
-		"babel-jest": "^28.1.0",
-		"copyfiles": "^2.4.1",
-		"eslint": "^8.15.0",
-		"eslint-config-prettier": "^8.5.0",
-		"eslint-plugin-prettier": "^4.0.0",
-		"eslint-plugin-react": "^7.29.4",
-		"eslint-plugin-react-hooks": "^4.5.0",
-		"husky": "^8.0.0",
-		"jest": "^28.1.0",
-		"jest-environment-jsdom": "^28.1.0",
-		"jest-watch-typeahead": "^1.1.0",
-		"lint-staged": "^12.4.1",
-		"npm-run-all": "^4.1.5",
-		"prettier": "^2.6.2",
-		"react": "^18.1.0",
-		"react-dom": "^18.1.0",
-		"react-test-renderer": "^18.1.0",
-		"rimraf": "^3.0.2",
-		"standard-version": "^9.3.2",
-		"ts-jest": "^28.0.2",
-		"typescript": "^4.6.4"
-	},
-	"lint-staged": {
-		"*.{ts,tsx}": [
-			"npm run format"
-		]
-	}
+  "name": "batteries-not-included",
+  "version": "0.0.0-development",
+  "description": "Highly configurable React & JavaScript utilities",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint \"**/*.{js,jsx,ts,tsx}\"",
+    "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "prepare": "husky install",
+    "test": "vitest",
+    "semantic-release": "semantic-release"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crutchcorn/batteries-not-included.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/crutchcorn/batteries-not-included/issues"
+  },
+  "homepage": "https://github.com/crutchcorn/batteries-not-included#readme",
+  "type": "commonjs",
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.3",
+    "@commitlint/config-conventional": "^17.6.3",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
+    "@types/node": "^18.16.16",
+    "@types/react": "^18.2.7",
+    "@types/testing-library__jest-dom": "^5.14.6",
+    "@typescript-eslint/eslint-plugin": "^5.59.7",
+    "@typescript-eslint/parser": "^5.59.2",
+    "@vitejs/plugin-react": "^4.0.0",
+    "eslint": "^8.41.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "husky": "^8.0.3",
+    "jsdom": "^22.1.0",
+    "lint-staged": "^13.2.2",
+    "prettier": "^2.8.8",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-test-renderer": "^18.2.0",
+    "semantic-release": "^21.0.2",
+    "typescript": "^5.0.4",
+    "vite": "^4.3.9",
+    "vite-plugin-dts": "^2.3.0",
+    "vitepress": "1.0.0-alpha.60",
+    "vitest": "^0.31.1"
+  },
+  "peerDependencies": {
+    "react": "^16.8 || ^17.0 || ^18.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "types": "./dist/index.d.ts",
+  "module": "./dist/batteries-not-included.main.mjs",
+  "main": "./dist/batteries-not-included.main.cjs",
+  "files": [
+    "dist",
+    "lib",
+    "example",
+    "README.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/batteries-not-included.main.mjs",
+      "require": "./dist/batteries-not-included.main.cjs",
+      "default": "./dist/batteries-not-included.main.cjs"
+    },
+    "./react": {
+      "types": "./dist/react/index.d.ts",
+      "import": "./dist/batteries-not-included.react.mjs",
+      "require": "./dist/batteries-not-included.react.cjs",
+      "default": "./dist/batteries-not-included.react.cjs"
+    },
+    "./utils": {
+      "types": "./dist/utils/index.d.ts",
+      "import": "./dist/batteries-not-included.utils.mjs",
+      "require": "./dist/batteries-not-included.utils.cjs",
+      "default": "./dist/batteries-not-included.utils.cjs"
+    }
+  },
+  "lint-staged": {
+    "*{.js,.jsx,.ts,.tsx}": "eslint --fix"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">= 99999.0.0",
+    "pnpm": ">= 8.0.0"
+  },
+  "release": {
+    "branches": [
+      "+([0-9])?(.{+([0-9]),x}).x",
+      "main",
+      "next",
+      "next-major",
+      {
+        "name": "beta",
+        "prerelease": true
+      },
+      {
+        "name": "alpha",
+        "prerelease": true
+      }
+    ]
+  }
 }
