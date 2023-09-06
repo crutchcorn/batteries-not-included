@@ -73,6 +73,10 @@ export default defineConfig({
             text: "Table",
             link: "/react/table",
           },
+          {
+            text: "Stable Options",
+            link: "/react/stable-options",
+          },
         ],
       },
     ],

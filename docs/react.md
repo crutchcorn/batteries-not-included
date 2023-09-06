@@ -1,3 +1,5 @@
+# React Utils
+
 As many of these packages are hooks, these packages expect a peer dependency of at least React 16.9.
 
 There are various sub-utilities to the React section of this package:
@@ -9,5 +11,5 @@ There are various sub-utilities to the React section of this package:
 It is suggested that all of these modules are imported from the following:
 
 ```tsx
-import {functionName} from 'batteries-not-included/react';
+import { functionName } from "batteries-not-included/react";
 ```
