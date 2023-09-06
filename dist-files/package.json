@@ -7,11 +7,11 @@
 	"scripts": {},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/unicorn-utterances/batteries-not-included.git"
+		"url": "git+https://github.com/crutchcorn/batteries-not-included.git"
 	},
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/unicorn-utterances/batteries-not-included/issues"
+		"url": "https://github.com/crutchcorn/batteries-not-included/issues"
 	},
-	"homepage": "https://github.com/unicorn-utterances/batteries-not-included#readme"
+	"homepage": "https://github.com/crutchcorn/batteries-not-included#readme"
 }

@@ -18,7 +18,7 @@ hero:
       link: /introduction
     - theme: alt
       text: View on GitHub
-      link: https://github.com/unicorn-utterances/batteries-not-included
+      link: https://github.com/crutchcorn/batteries-not-included
 
 features:
   - icon: 📘

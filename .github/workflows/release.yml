@@ -22,7 +22,7 @@ jobs:
 
     runs-on: ubuntu-latest
     if:
-      ${{ github.repository == 'unicorn-utterances/batteries-not-included' &&
+      ${{ github.repository == 'crutchcorn/batteries-not-included' &&
       github.event_name == 'push' }}
     steps:
       - name: 🛑 Cancel Previous Runs

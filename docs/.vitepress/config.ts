@@ -3,7 +3,7 @@ import { defineConfig } from "vitepress";
 const { description } = require("../../package.json");
 
 const ogImage =
-  "https://unicorn-utterances.github.io/batteries-not-included/social-banner.png";
+  "https://crutchcorn.github.io/batteries-not-included/social-banner.png";
 
 export default defineConfig({
   lang: "en-US",
@@ -24,12 +24,12 @@ export default defineConfig({
     socialLinks: [
       {
         icon: "github",
-        link: "https://github.com/unicorn-utterances/batteries-not-included",
+        link: "https://github.com/crutchcorn/batteries-not-included",
       },
     ],
     editLink: {
       pattern:
-        "https://github.com/unicorn-utterances/batteries-not-included/edit/main/docs/:path",
+        "https://github.com/crutchcorn/batteries-not-included/edit/main/docs/:path",
     },
     nav: [
       { text: "Introduction", link: "/introduction" },
@@ -39,11 +39,11 @@ export default defineConfig({
           // Change to `Changelog` when we have one
           {
             text: "Releases",
-            link: "https://github.com/unicorn-utterances/batteries-not-included/releases",
+            link: "https://github.com/crutchcorn/batteries-not-included/releases",
           },
           {
             text: "Contributing",
-            link: "https://github.com/unicorn-utterances/batteries-not-included/blob/main/CONTRIBUTING.md",
+            link: "https://github.com/crutchcorn/batteries-not-included/blob/main/CONTRIBUTING.md",
           },
         ],
       },
