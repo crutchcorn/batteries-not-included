@@ -1,18 +1,7 @@
 These packages are meant for non-framework based code. This means that every utility in this subpackage should be able to be used
 in vanilla JS or in codebases utilizing something like React or Angular.
 
-## Utilities
-
-
-Table of Contents
-=================
-
-  * [Normalize Number](#normalize-number)
-  * [Wrap Number](#wrap-number)
-
-------
-
-### Normalize Number
+## Normalize Number
 
 | File               | Function           |
 | ------------------ | ------------------ |
@@ -35,14 +24,14 @@ All three of these parameters must be numbers
 If the number is less than the minimum, the minimum number will be returned
 If the number is more than the maximum, the maximum number will be returned
 
-#### Examples
+### Examples
 ```javascript
 normalizeNumber(5, 3, 10); // 5
 normalizeNumber(1, 3, 10); // 3
 normalizeNumber(18, 3, 10); // 10
 ```
 
-### Wrap Number
+## Wrap Number
 
 | File               | Function           |
 | ------------------ | ------------------ |
@@ -65,7 +54,7 @@ All three of these parameters must be numbers
 If the number is less than the minimum, the maximum number will be returned
 If the number is more than the maximum, the minimum number will be returned
 
-#### Examples
+### Examples
 ```javascript
 wrapNumber(5, 3, 10); // 5
 wrapNumber(1, 3, 10); // 10
@@ -73,7 +62,7 @@ wrapNumber(18, 3, 10); // 3
 ```
 
 
-### Make an ASCII Table From 2D Array
+## Make an ASCII Table From 2D Array
 
 | File      | Function   |
 | --------- | ---------- |
@@ -112,7 +101,7 @@ Bananas |     1 |    -129389176
 > by `console.table`, as in some circumstances it is interactive
 
 
-### Diff An Array
+## Diff An Array
 
 | File                          | Function                   |
 | ----------------------------- | -------------------------- |

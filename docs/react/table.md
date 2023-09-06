@@ -1,15 +1,5 @@
 This is meant to be a React Table component that is both easy-to-use out-of-the-box, but also extremely configurable without having to eject from the table itself
 
-
-
-Table of Contents
-=================
-
-  * [Table](#Table)
-  * [Table Column](#Table-Column)
-  * [Simple Example](#Simple-Example)
-  * [Advanced Example](#Advanced-Example)
-
 ## Table
 
 The `DataTable` component handles displaying the `tbody`, `thead`, `tfoot`, and more based on the `DataTableColumn` children passed. It also supports many types of children that aren't column defs, such as [`caption`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption). These other children will be injected below the `thead` and above the `tbody` when supplied

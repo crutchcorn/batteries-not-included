@@ -1,7 +1,7 @@
 {
   "name": "batteries-not-included",
   "version": "0.0.0-development",
-  "description": "A utilities library with a batteries-not-included philosophy",
+  "description": "Highly configurable React & JavaScript utilities",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

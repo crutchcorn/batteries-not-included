@@ -1,16 +1,5 @@
 This set of utilities is meant to help developers create accessible components without making assumptions about how it's UI will display
 
-Table of Contents
-=================
-
-  * [ID Generator](#id-generation)
-  * [Keyboard Detection](#keyboard-detection)
-  * [Keyboard List Navigation](#keyboard-list-navigation)
-  * [Selectable Array](#selectable-array)
-  * [Popover](#popover)
-
-------
-
 ## ID Generation
 
 | File       | Function  |

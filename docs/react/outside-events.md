@@ -4,15 +4,6 @@ For example, if you want to check when a user is clicking outside of the current
 
 They're all based on the [onOutsideEvent](./onOutsideEvent.ts) code, which will provide a good baseline for someone to read
 
-
-Table of Contents
-=================
-
-  * [Event Listeners](#event-listeners)
-  * [Base Event Listener](#base-event-listener)
-
-------
-
 ## Event Listeners
 
 | File              | Function          |
