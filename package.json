@@ -63,8 +63,8 @@
     }
   },
   "types": "./dist/index.d.ts",
-  "module": "./dist/batteries-not-included.mjs",
-  "main": "./dist/batteries-not-included.cjs",
+  "module": "./dist/batteries-not-included.main.mjs",
+  "main": "./dist/batteries-not-included.main.cjs",
   "files": [
     "dist",
     "lib",
@@ -74,9 +74,21 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/batteries-not-included.mjs",
-      "require": "./dist/batteries-not-included.cjs",
-      "default": "./dist/batteries-not-included.cjs"
+      "import": "./dist/batteries-not-included.main.mjs",
+      "require": "./dist/batteries-not-included.main.cjs",
+      "default": "./dist/batteries-not-included.main.cjs"
+    },
+    "./react": {
+      "types": "./dist/react/index.d.ts",
+      "import": "./dist/batteries-not-included.react.mjs",
+      "require": "./dist/batteries-not-included.react.cjs",
+      "default": "./dist/batteries-not-included.react.cjs"
+    },
+    "./utils": {
+      "types": "./dist/utils/index.d.ts",
+      "import": "./dist/batteries-not-included.utils.mjs",
+      "require": "./dist/batteries-not-included.utils.cjs",
+      "default": "./dist/batteries-not-included.utils.cjs"
     }
   },
   "lint-staged": {

@@ -7,16 +7,16 @@ import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-const getFileName = (prefix: string, format: string) => {
+const getFileName = (prefix: string, entryName: string, format: string) => {
   switch (format) {
     case "es":
     case "esm":
     case "module":
-      return `${prefix}.mjs`;
+      return `${prefix}.${entryName}.mjs`;
     case "cjs":
     case "commonjs":
     default:
-      return `${prefix}.cjs`;
+      return `${prefix}.${entryName}.cjs`;
   }
 };
 
@@ -34,10 +34,14 @@ export default defineConfig({
   },
   build: {
     lib: {
-      entry: resolve(__dirname, "lib/index.ts"),
+      entry: {
+        main: resolve(__dirname, "lib/index.ts"),
+        react: resolve(__dirname, "lib/react/index.ts"),
+        utils: resolve(__dirname, "lib/utils/index.ts"),
+      },
       name: "BatteriesNotIncluded",
       fileName: (format, entryName) =>
-        getFileName("batteries-not-included", format),
+        getFileName("batteries-not-included", entryName, format),
     },
     rollupOptions: {
       external: ["react", "react-dom", "react/jsx-runtime"],

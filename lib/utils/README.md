@@ -18,10 +18,8 @@ Table of Contents
 | ------------------ | ------------------ |
 | `normalize-number` | `normalizeNumber`  |
 
-As a result, you're able to import either from:
 ```javascript
 import {normalizeNumber} from 'batteries-not-included/utils';
-import {normalizeNumber} from 'batteries-not-included/utils/normalize-number';
 ```
 
 However, due to potential breaking APIs in the future, it is highly suggested to use the first of the two results.
@@ -50,10 +48,8 @@ normalizeNumber(18, 3, 10); // 10
 | ------------------ | ------------------ |
 | `wrap-number` | `wrapNumber`  |
 
-As a result, you're able to import either from:
 ```javascript
 import {wrapNumber} from 'batteries-not-included/utils';
-import {wrapNumber} from 'batteries-not-included/utils/wrap-number';
 ```
 
 However, due to potential breaking APIs in the future, it is highly suggested to use the first of the two results.
