@@ -1,19 +1,23 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "es6",
-    "jsx": "react",
-    "lib": ["dom", "esnext"],
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
     "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
     "isolatedModules": true,
-    "esModuleInterop": true,
-    "noUnusedLocals": false,
-    "declaration": true,
-    "outDir": "dist"
+    "noEmit": true,
+    "jsxImportSource": "react",
+    "jsx": "preserve"
   },
-  "include": [
-    "./src/**/*",
-    "./node_modules/@types/testing-library__jest-dom/index.d.ts"
-  ],
-  "exclude": ["node_modules", "public", ".cache", "**/*.test.ts", "**/*.test.tsx"]
+  "include": ["lib"],
+  "exclude": ["*.spec.tsx", "*.spec.ts"],
+  "references": [{ "path": "./tsconfig.node.json" }, { "path": "./tsconfig.spec.json" }]
 }

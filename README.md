@@ -23,8 +23,8 @@ places you'll be using the code. By making these utilities small-scale and abstr
 
 Still having a hard time understanding what I mean? That's perfectly normal. Take a look around our packages for various items:
 
-- [React A11Y Utilities](./src/react/README.md)
-- [JavaScript Utilities](./src/utils/README.md)
+- [React Utilities](./lib/react/README.md)
+- [JavaScript Utilities](./lib/utils/README.md)
 - More coming soon
 
 While this package is in a pre-release stage, we will be following the semver
