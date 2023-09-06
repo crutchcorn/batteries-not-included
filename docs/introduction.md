@@ -11,6 +11,8 @@ head:
       content: Simple-to-use React Hooks for RxJS interop.
 ---
 
+# Introduction
+
 We've all been there, using a library we've found that works well for just about every task you throw at it; until it doesn't.
 There's some configuration that the developers have placed in the codebase that prevents you from using it.
 
